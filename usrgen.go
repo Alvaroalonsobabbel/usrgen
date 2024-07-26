@@ -6,11 +6,20 @@ import (
 	"github.com/gosimple/slug"
 )
 
-const errMsg = "User Generator error: Exceeded length of first name."
+const (
+	errMsg = "User Generator error: Exceeded length of first name."
+
+	// We use 1 for the first letter and not 0 because we're slicing the
+	// first name string. Slicing takes up to but not including the number passed.
+	firstLetter = 1
+)
 
 type ug struct {
 	first, last string
-	n           int
+
+	// n represents the number of letters taken
+	// from the first name to produce the user name
+	n int
 }
 
 // New creates an instance of usrgen with the first and
@@ -24,7 +33,7 @@ func New(firstName, lastName, lang string) *ug {
 	return &ug{
 		first: slug.MakeLang(firstName, lang),
 		last:  slug.MakeLang(lastName, lang),
-		n:     1,
+		n:     firstLetter,
 	}
 }
 

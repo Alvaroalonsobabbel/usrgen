@@ -1,5 +1,7 @@
 # usrgen
 
+![GitHub go.mod Go version](https://img.shields.io/github/go-mod/go-version/Alvaroalonsobabbel/usrgen) ![Test](https://github.com/babbel-internal-it/offboarding-service/actions/workflows/test.yml/badge.svg)
+
 Package `usrgen` generates a username based on a person's first
 and last name using the first letter of the first name plus the
 entire last name.
