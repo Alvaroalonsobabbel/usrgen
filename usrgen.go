@@ -7,7 +7,7 @@ import (
 )
 
 const (
-	errMsg = "User Generator error: Exceeded length of first name."
+	errMsg = "usrgen: Exceeded length of first name"
 
 	// We use 1 for the first letter and not 0 because we're slicing the
 	// first name string. Slicing takes up to but not including the number passed.
@@ -24,7 +24,7 @@ type ug struct {
 
 // New creates an instance of usrgen with the first and
 // last name and the language for character substitution.
-func New(firstName, lastName, lang string) *ug {
+func New(firstName, lastName, lang string) *ug { //nolint: revive
 	slug.CustomSub = map[string]string{
 		" ": "", // spaces are originally replaced by "-" in slug
 		"_": "", // remove underscores from names if any
