@@ -1,7 +1,7 @@
 package usrgen
 
 import (
-	"fmt"
+	"errors"
 
 	"github.com/gosimple/slug"
 )
@@ -45,7 +45,7 @@ func New(firstName, lastName, lang string) *ug { //nolint: revive
 // times than the length of the first name.
 func (u *ug) Generate() (string, error) {
 	if u.n > len(u.first) {
-		return "", fmt.Errorf(errMsg)
+		return "", errors.New(errMsg)
 	}
 	defer func() { u.n++ }()
 
