@@ -39,6 +39,9 @@ func main() {
 		}
 		fmt.Println(username) // Will print: "jperez"
 
+		// String() will return the latest generated username
+		fmt.Println(usrgen.String()) // Will print: "jperez"
+
 		username, err = usrgen.Generate()
 		if err != nil {
 			fmt.Println(err)
