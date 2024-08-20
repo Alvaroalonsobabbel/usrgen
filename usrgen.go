@@ -47,11 +47,7 @@ func (u *ug) Generate() (string, error) {
 	if u.n > len(u.first) {
 		return "", fmt.Errorf(errMsg)
 	}
-	defer u.increment()
+	defer func() { u.n++ }()
 
 	return u.first[:u.n] + u.last, nil
-}
-
-func (u *ug) increment() {
-	u.n++
 }
