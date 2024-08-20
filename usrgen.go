@@ -15,7 +15,7 @@ const (
 )
 
 type ug struct {
-	first, last string
+	first, last, userName string
 
 	// n represents the number of letters taken
 	// from the first name to produce the user name
@@ -49,5 +49,12 @@ func (u *ug) Generate() (string, error) {
 	}
 	defer func() { u.n++ }()
 
-	return u.first[:u.n] + u.last, nil
+	u.userName = u.first[:u.n] + u.last
+
+	return u.userName, nil
+}
+
+// Stringer method returns the latest generated user name.
+func (u *ug) String() string {
+	return u.userName
 }

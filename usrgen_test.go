@@ -83,3 +83,19 @@ func TestGenerate(t *testing.T) { // nolint:funlen
 		}
 	})
 }
+
+func TestString(t *testing.T) {
+	var (
+		usrgen           = usrgen.New("test", "person", "de")
+		expectedUserName = "tperson"
+	)
+
+	username, err := usrgen.Generate()
+	assert.NoError(t, err)
+	assert.Equal(t, expectedUserName, username)
+
+	for range 5 {
+		// calling usrgen.String() multiple times returns always the same username
+		assert.Equal(t, expectedUserName, usrgen.String())
+	}
+}
