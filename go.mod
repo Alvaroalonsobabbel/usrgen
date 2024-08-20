@@ -1,6 +1,6 @@
 module github.com/Alvaroalonsobabbel/usrgen
 
-go 1.22.4
+go 1.23.0
 
 require (
 	github.com/gosimple/slug v1.14.0
